@@ -1,0 +1,29 @@
+server:
+  port: 8883
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master
+      profile: dev
+      discovery:
+        enabled: true
+        serviceId: config-server
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: jiangxl
+    password: 123456
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
+management:
+  security:
+    enabled: false
+#spring.cloud.config.discovery.enabled 是非从配置中心读取文件
+#spring.cloud.config.discovery.serviceId 配置中心的servieId，即服务名
